@@ -1,4 +1,4 @@
-# Microservices-Design-Patterns
+# Microservices-Design-Patterns: Strangler-Pattern Example
 
 #Scenario:
 
