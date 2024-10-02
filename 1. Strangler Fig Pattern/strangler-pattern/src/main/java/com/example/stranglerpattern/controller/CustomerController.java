@@ -1,4 +1,4 @@
-package com.example.stranglerpattern.service.controller;
+package com.example.stranglerpattern.controller;
 
 import com.example.stranglerpattern.service.StranglerFigProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CustomerController {
+    @Autowired
     private final StranglerFigProxy stranglerFigProxy;
 
     @Autowired

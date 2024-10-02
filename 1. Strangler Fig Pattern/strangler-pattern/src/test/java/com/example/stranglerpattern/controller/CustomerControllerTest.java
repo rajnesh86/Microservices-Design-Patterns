@@ -1,7 +1,6 @@
 package com.example.stranglerpattern.controller;
 
 import com.example.stranglerpattern.service.StranglerFigProxy;
-import com.example.stranglerpattern.service.controller.CustomerController;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
