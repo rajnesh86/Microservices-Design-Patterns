@@ -2,6 +2,8 @@
 
 Master microservices design patterns for designing scalable, resilient, and more manageable systems.
 
-Course Content
+# Course Content
 
 1. Strangler Fig Pattern
+
+2. API Gateway pattern
