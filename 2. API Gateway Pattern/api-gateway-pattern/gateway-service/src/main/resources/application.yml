@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: gateway-service  # The name of the API Gateway application
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # Enable service discovery for dynamic routing using Eureka
+      routes:
+        - id: product-service-route  # Unique identifier for the route configuration
+          uri: lb://PRODUCT-SERVICE  # Use load-balanced URI with the service name as registered in Eureka (PRODUCT-SERVICE)
+          predicates:
+            - Path=/product-service/**  # Route requests that match the path pattern /product-service/**
+          filters:
+            - StripPrefix=1  # Remove the first path segment (/product-service) before forwarding the request
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL of the Eureka Server for service registration and discovery
+    fetch-registry: true  # Enable fetching the list of registered services from Eureka
+    register-with-eureka: true  # Enable registering this API Gateway instance with Eureka
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG  # Enable DEBUG-level logging for Spring Cloud Gateway components
+    reactor.netty.http.client: DEBUG  # Enable DEBUG-level logging for Reactor Netty HTTP client (useful for tracing HTTP requests)

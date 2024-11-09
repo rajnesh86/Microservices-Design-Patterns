@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: service-discovery  # Sets the application name for Eureka Server, used for identification.
+
+server:
+  port: 8761  # The port on which the Eureka Server application will run.
+
+eureka:
+  client:
+    register-with-eureka: false  # Disables self-registration. The server does not register with itself.
+    fetch-registry: false  # Prevents the server from fetching the registry. Not needed for standalone Eureka Server.
+  instance:
+    hostname: eureka-server  # Defines the hostname for the Eureka Server instance. Useful for identifying the server.
+    metadata-map:
+      region: us-east-1  # Custom metadata for the instance. Here, 'region' is specified as 'us-east-1'.
+  server:
+    enable-self-preservation: true  # Enables self-preservation mode to prevent removing instances during network issues.
+    eviction-interval-timer-in-ms: 60000  # Sets the interval (in milliseconds) for checking expired instances. Default is 60 seconds.
+    response-cache-update-interval-ms: 3000  # Interval (in milliseconds) for updating the response cache. Helps improve performance by reducing direct registry queries.
