@@ -1,0 +1,33 @@
+server:
+  port: 0  # The service will start on port 9090
+
+spring:
+  application:
+    name: product-service  # Unique name for this microservice, used for registration in Eureka and logging
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:h2:mem:productdb  # In-memory H2 database URL
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true  # Enable H2 web console
+      settings:
+        web-allow-others: true # Allow access to the H2 console from any IP (use cautiously in production)
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL of the Eureka Server for service discovery and registration
+
+  instance:
+    prefer-ip-address: true  # Use the IP address instead of the hostname for service registration
+    instance-id: ${spring.application.name}:${random.value}  # Unique identifier for each instance

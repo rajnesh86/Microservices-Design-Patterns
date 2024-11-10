@@ -1,0 +1,7 @@
+package com.microservicedesign.product.service.command;
+
+import org.axonframework.spring.stereotype.Aggregate;
+
+@Aggregate
+public class ProductAggergate {
+}
